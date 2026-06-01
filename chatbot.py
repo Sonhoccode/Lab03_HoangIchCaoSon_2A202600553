@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 from src.core.openai_provider import OpenAIProvider
 from src.core.gemini_provider import GeminiProvider
-from src.core.local_provider import LocalProvider
 from src.telemetry.metrics import tracker
 from src.telemetry.logger import logger
 
@@ -17,8 +16,9 @@ def _build_provider():
         model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
         return GeminiProvider(model_name=model, api_key=api_key)
     if provider_name == "local":
-        model_path = os.getenv("LOCAL_MODEL_PATH", "./models/Phi-3-mini-4k-instruct-q4.gguf")
-        return LocalProvider(model_path=model_path)
+        raise ValueError(
+            "The local provider has been removed. Set DEFAULT_PROVIDER to 'openai' or 'gemini'."
+        )
 
     api_key = os.getenv("OPENAI_API_KEY")
     model = os.getenv("OPENAI_MODEL", "gpt-4o")

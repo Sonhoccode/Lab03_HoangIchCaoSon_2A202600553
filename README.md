@@ -18,25 +18,6 @@ pip install -r requirements.txt
 ### 3. Directory Structure
 - `src/tools/`: Extension point for your custom tools.
 
-## 🏠 Running with Local Models (CPU)
-
-If you don't want to use OpenAI or Gemini, you can run open-source models (like Phi-3) directly on your CPU using `llama-cpp-python`.
-
-### 1. Download the Model
-Download the **Phi-3-mini-4k-instruct-q4.gguf** (approx 2.2GB) from Hugging Face:
-- [Phi-3-mini-4k-instruct-GGUF](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf)
-- Direct Download: [phi-3-mini-4k-instruct-q4.gguf](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf)
-
-### 2. Place Model in Project
-Create a `models/` folder in the root and move the downloaded `.gguf` file there.
-
-### 3. Update `.env`
-Change your `DEFAULT_PROVIDER` and set the path:
-```env
-DEFAULT_PROVIDER=local
-LOCAL_MODEL_PATH=./models/Phi-3-mini-4k-instruct-q4.gguf
-```
-
 ## 🎯 Lab Objectives
 
 1.  **Baseline Chatbot**: Observe the limitations of a standard LLM when faced with multi-step reasoning.
